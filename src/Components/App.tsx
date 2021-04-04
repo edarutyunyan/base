@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.scss';
+import Header from './Fragments/Header';
+import MenuCreateForm from './Fragments/Forms/MenuCreateForm';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header" />
+      <Header />
+      <div className={'App-content center'}>
+        <h1>New Menu Section</h1>
+        <MenuCreateForm />
+      </div>
     </div>
   );
 }
