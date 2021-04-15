@@ -1,3 +1,3 @@
-import MenuCreateForm from './MenuCreateForm';
+import LunchMenuCreateForm from './LunchMenuCreateForm';
 
-export default MenuCreateForm;
+export default LunchMenuCreateForm;

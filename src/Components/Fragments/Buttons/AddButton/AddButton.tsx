@@ -9,7 +9,7 @@ type AddButtonProps = {
 
 export const AddButton: React.FC<AddButtonProps> = ({ title, onClick }: AddButtonProps) => {
   return (
-    <Button icon={<PlusOutlined />} shape={'round'}>
+    <Button icon={<PlusOutlined />} shape={'round'} onClick={onClick}>
       {title}
     </Button>
   );

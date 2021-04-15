@@ -1,0 +1,18 @@
+.MenuEditPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: inherit;
+  height: inherit;
+
+  &-content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    flex: 1 1 auto;
+
+  }
+  &-side-col {
+
+  }
+}
