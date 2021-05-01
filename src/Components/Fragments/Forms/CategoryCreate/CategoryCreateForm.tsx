@@ -31,7 +31,7 @@ export const CategoryCreateForm: React.FC<any> = () => {
           label={'Выберите меню, в которое вы хотите добавить категорию:'}
           wrapperCol={{ span: 6 }}
           required
-          requiredMark
+          requiredMark={true}
           name={'selectedMenuId'}
         >
           <Select
@@ -51,23 +51,5 @@ export const CategoryCreateForm: React.FC<any> = () => {
         <Button htmlType={'submit'}>Добавить категорию</Button>
       </Form>
     </Card>
-  );
-};
-
-const CreateDishForm = () => {
-  return (
-    <Form className="create-dish-form">
-      <Form.Item label={'Название блюда'}>
-        <Input />
-      </Form.Item>
-      <Form.Item label={'Вес / Цена'}>
-        <Input />
-      </Form.Item>
-
-      <Form.Item label={'Описание блюда'}>
-        <Input.TextArea />
-      </Form.Item>
-      <Button htmlType={'submit'}>Добавить блюдо</Button>
-    </Form>
   );
 };

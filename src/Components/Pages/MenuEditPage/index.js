@@ -1,3 +1,3 @@
 import { MenuEditPage } from './MenuEditPage';
 
-export { MenuEditPage };
+export default MenuEditPage;

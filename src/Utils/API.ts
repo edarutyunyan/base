@@ -1,5 +1,4 @@
 import { database } from './firebase';
-import axios from 'axios';
 import firebase from 'firebase';
 
 const createLunchMenu = async (data: { menuName: string; menuDescription: string }) => {

@@ -5,9 +5,11 @@ import LunchMenuCreateForm from '../../Fragments/Forms/MenuCreateForm';
 import { CategoryCreateForm } from '../../Fragments/Forms/CategoryCreate';
 import { getLunchMenus } from '../../../Utils/API';
 import { database } from '../../../Utils/firebase';
+import { DishCreateForm } from '../../Fragments/Forms/DishCreateForm';
 
-export const MenuEditPage = () => {
+export const MenuEditPage: React.FC<any> = ({}) => {
   const [menuItems, setMenuItems] = useState([]);
+
   useEffect(() => {
     getLunchMenus().then((response) => {
       if (response) {
@@ -31,6 +33,7 @@ export const MenuEditPage = () => {
       <div className="MenuEditPage-content">
         <LunchMenuCreateForm />
         <CategoryCreateForm />
+        <DishCreateForm />
       </div>
 
       <div className="MenuEditPage-side-col">
