@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form, Input } from 'antd';
 import Password from 'antd/es/input/Password';
 import { Auth } from '../../../Utils/API';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { AppContext } from '../../../App';
 
-export const LoginPage: React.FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
+type LoginPageProps = RouteComponentProps<any> & {
+  children?: React.ReactNode;
+  mode: 'signin' | 'signup';
+};
+
+const LoginPage: React.FC<LoginPageProps> = ({ history, mode }) => {
+  const { setUser } = useContext(AppContext);
+
   const handleSubmit = (data: any) => {
     const email = data.email;
     const pass = data.pass;
-    console.log({ email, pass });
-    if (mode === 'signin') {
-      Auth.SignIn(email, pass)
-        .then((res) => localStorage.setItem('user', JSON.stringify(res.user)))
-        .catch((err) => console.error('error:', err.toJSON()));
-    } else {
-      Auth.SignUp(email, pass)
-        .then((res) => localStorage.setItem('user', JSON.stringify(res.user)))
-        .catch((err) => console.error('error:', err.toJSON()));
-    }
+    (mode === 'signin' ? Auth.SignIn : Auth.SignUp)(email, pass)
+      .then((res) => {
+        localStorage.setItem('user', JSON.stringify(res.user));
+        setUser && setUser(res.user);
+        history.push('/');
+      })
+      .catch((err) => console.error('error:', err.toJSON()));
   };
+
   return (
     <div className="LoginPage">
       <Form onFinish={handleSubmit} labelCol={{ span: 24 }} wrapperCol={{ span: 16 }}>
@@ -34,3 +41,4 @@ export const LoginPage: React.FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => 
     </div>
   );
 };
+export default withRouter(LoginPage);

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { PageHeader } from 'antd';
 import './Header.scss';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { LogoutOutlined } from '@ant-design/icons';
+import { AppContext } from '../../../App';
 
 type HeaderProps = { isAuth: boolean };
 const Header: React.FC<HeaderProps> = ({ isAuth }: HeaderProps) => {
@@ -33,13 +34,13 @@ const Header: React.FC<HeaderProps> = ({ isAuth }: HeaderProps) => {
 
 export default Header;
 
-const Nav: React.FC<
-  RouteComponentProps<any> & {
-    children?: React.ReactNode;
-    links: { path: string; title: string }[];
-    isAuth: boolean;
-  }
-> = ({ history, links, isAuth }) => {
+type NavPropsType = RouteComponentProps<any> & {
+  links: { path: string; title: string }[];
+  isAuth: boolean;
+};
+
+const Nav: React.FC<NavPropsType> = ({ history, links, isAuth }) => {
+  const { setUser } = useContext(AppContext);
   return (
     <div className={'header-navigation'}>
       {links.map((link) => (
@@ -56,6 +57,7 @@ const Nav: React.FC<
         <LogoutOutlined
           onClick={() => {
             localStorage.removeItem('user');
+            setUser && setUser(null);
             history.push('/');
           }}
           title={'Logout'}

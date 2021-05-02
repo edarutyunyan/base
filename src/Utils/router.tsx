@@ -4,6 +4,7 @@ export type RouteType = {
   component: React.FunctionComponent;
   path: string;
 };
+
 const MainPage = lazy(() => import('../Components/Pages/MainPage'));
 const MenuEditPage = lazy(() => import('../Components/Pages/MenuEditPage'));
 
