@@ -6,7 +6,6 @@ export type RouteType = {
 };
 
 const MainPage = lazy(() => import('../Components/Pages/MainPage'));
-const MenuEditPage = lazy(() => import('../Components/Pages/MenuEditPage'));
 
 const CommonRoutes = [
   {
@@ -19,7 +18,7 @@ export const Authenticated: RouteType[] = [
   ...CommonRoutes,
   {
     path: '/menuedit',
-    component: () => <MenuEditPage />,
+    component: () => <></>,
   },
 ];
 
