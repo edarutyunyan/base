@@ -19,11 +19,11 @@ export const MenuEditPage: React.FC<any> = ({}) => {
           menuName: data[1].menuName,
         }));
         console.log(normalized);
-        console.log(Object.entries(response));
+
         database
-          .ref('categories/-MY66wnjrc8CovJizl9R')
+          .ref('categories')
           .get()
-          .then((res) => console.log(res.toJSON()));
+          .then((res) => console.log(Object.values(res.toJSON() as Object)));
       }
     });
   }, []);
