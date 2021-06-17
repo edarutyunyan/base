@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ isAuth }: HeaderProps) => {
     },
   ];
 
-  const authLinks: { title: string; path: string }[] = [];
+  const authLinks: { title: string; path: string }[] = [{ title: 'RoadSVG', path: 'road' }];
 
   return (
     <PageHeader
