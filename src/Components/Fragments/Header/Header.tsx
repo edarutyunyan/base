@@ -17,15 +17,12 @@ const Header: React.FC<HeaderProps> = ({ isAuth }: HeaderProps) => {
       title: 'Регистрация',
     },
   ];
-  const authLinks = [
-    {
-      path: 'menuedit',
-      title: 'Редактировать меню',
-    },
-  ];
+
+  const authLinks: { title: string; path: string }[] = [];
+
   return (
     <PageHeader
-      title={<Link to={'/'}>Lunch Web</Link>}
+      title={<Link to={'/'}>Base</Link>}
       className={'Header'}
       extra={<NavWithRouter isAuth={isAuth} links={isAuth ? authLinks : nonAuthLinks} />}
     />

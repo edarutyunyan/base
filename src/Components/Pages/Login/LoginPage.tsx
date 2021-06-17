@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Form, Input } from 'antd';
 import Password from 'antd/es/input/Password';
-import { Auth } from '../../../Utils/API';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { AppContext } from '../../../App';
 
@@ -12,6 +11,15 @@ type LoginPageProps = RouteComponentProps<any> & {
 
 const LoginPage: React.FC<LoginPageProps> = ({ history, mode }) => {
   const { setUser } = useContext(AppContext);
+
+  const Auth = {
+    SignIn(email: string, pass: string): Promise<{ user: string }> {
+      return new Promise((resolve) => ({ user: '' }));
+    },
+    SignUp(email: string, pass: string): Promise<{ user: string }> {
+      return new Promise((resolve) => ({ user: '' }));
+    },
+  };
 
   const handleSubmit = (data: any) => {
     const email = data.email;
